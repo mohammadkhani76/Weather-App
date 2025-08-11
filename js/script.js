@@ -9,19 +9,19 @@ let currentTempCelsius = null; // متغیر ذخیره دمای سلسیوس
 //========== Get Location API ==========
 async function getLocation() {
   try {
-    const response = await fetch(
-      "http://ip-api.com/json/?fields=country,city,lat,lon,timezone"
-    );
-
+    const response = await fetch("https://geolocation-db.com/json/");
     if (!response.ok) {
       throw new Error(`HTTP ERROR! Status:${response.status}`);
     }
     const locationData = await response.json();
     console.log(locationData);
 
-    timezone.innerHTML = `${locationData.country} / ${locationData.city}`;
-
-    await getWeather(locationData.lat, locationData.lon);
+    timezone.innerHTML = `${locationData.city || "Unknown City"} / ${
+      locationData.country_name || locationData.country_code
+    }`;
+    const lat = parseFloat(locationData.latitude);
+    const lon = parseFloat(locationData.longitude);
+    await getWeather(lat, lon);
   } catch (error) {
     console.log("error!", error);
   }
@@ -67,13 +67,13 @@ function tempConverter() {
     currentTempUnit = "celsius";
   }
 }
-// ========== Event ===========
 
+// ========== Event ===========
 degree.addEventListener("click", () => {
   tempConverter();
 });
-// ========== Load ===========
 
+// ========== Load ===========
 window.addEventListener("DOMContentLoaded", () => {
   getLocation();
 });
