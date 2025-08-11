@@ -18,16 +18,20 @@ function loadFromLocalstorage() {
 //========== Get Location API ==========
 async function getLocation() {
   try {
-    const response = await fetch(
-      "http://ip-api.com/json/?fields=country,city,lat,lon,timezone"
-    );
+    const response = await fetch("https://geolocation-db.com/json/");
+
     if (!response.ok) throw new Error(`HTTP ERROR! Status: ${response.status}`);
 
     const locationData = await response.json();
     console.log(locationData);
 
-    timezone.textContent = `${locationData.country} / ${locationData.city}`;
-    await getWeather(locationData.lat, locationData.lon);
+    timezone.innerHTML = `${locationData.city || "Unknown City"} / ${
+      locationData.country_name || locationData.country_code
+    }`;
+
+    const lat = parseFloat(locationData.latitude);
+    const lon = parseFloat(locationData.longitude);
+    await getWeather(lat, lon);
   } catch (error) {
     console.error("Error fetching location:", error);
   }
