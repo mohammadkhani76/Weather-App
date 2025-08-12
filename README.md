@@ -47,7 +47,7 @@ A simple weather application that displays the current temperature, weather cond
 
 Feel free to reach out:
 
-- GitHub: https://github.com/mohammadkhani76/
+- GitHub: https://github.com/mohammadkhani76/Weather-App
 - Email: nazanin.khani2@gmail.com
 
 ---
