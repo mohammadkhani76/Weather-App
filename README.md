@@ -1,7 +1,3 @@
-
-Here’s your README in proper **Markdown** format:
-
-```markdown
 # Simple Weather App
 
 A simple weather application that displays the current temperature, weather condition, and location based on the user's geographical position.
@@ -41,13 +37,21 @@ A simple weather application that displays the current temperature, weather cond
 ## Future Improvements
 - Improve design and add animations.
 - Better error handling and user-friendly messages.
-```
+
+---
+## Live Demo
+
+Check out the live version of the project here:  
+[Weather App](https://weather-app-pied-zeta-68.vercel.app/)
+
+---
 
 ## Contact
 
 Feel free to reach out:
 
 - GitHub: https://github.com/mohammadkhani76/Weather-App
+- LinkedIn: https://www.linkedin.com/in/nazanin-mohammadkhani76
 - Email: nazanin.khani2@gmail.com
 
 ---

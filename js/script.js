@@ -10,6 +10,7 @@ let currentTempCelsius = null; // متغیر ذخیره دمای سلسیوس
 async function getLocation() {
   try {
     const response = await fetch("https://geolocation-db.com/json/");
+
     if (!response.ok) {
       throw new Error(`HTTP ERROR! Status:${response.status}`);
     }
